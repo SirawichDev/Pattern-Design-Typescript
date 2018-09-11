@@ -1,0 +1,22 @@
+{
+  "name": "pattern-design-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SirawichDev/Pattern-Design-Typescript.git"
+  },
+  "author": "sirawich",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SirawichDev/Pattern-Design-Typescript/issues"
+  },
+  "homepage": "https://github.com/SirawichDev/Pattern-Design-Typescript#readme",
+  "dependencies": {
+    "@types/node": "^10.9.4"
+  }
+}
