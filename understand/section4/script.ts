@@ -1,6 +1,6 @@
 class Person {
     name: string;
-    private type:string; //only access obj you create
+    private type:string; //only access obj you create 
     protected age:number = 23;  //access any class extenn Person class
 
     constructor(name:string,public username:string){ //argrument of Person
@@ -24,10 +24,12 @@ person.printAge();
 
 
 //Inheritance
-class Ex extends Person{
+class Ex extends Person{ //ไม่ inheritance private ของ class แม่
    // name = 'xx';
     constructor(username:string){ 
         super("Max",username); //ส่งไปยัง constructure ของ class แม่
+        this.age = 10;
+        // console.log(this.type) Error
     }
 }
 

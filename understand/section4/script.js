@@ -37,7 +37,10 @@ var Ex = /** @class */ (function (_super) {
     __extends(Ex, _super);
     // name = 'xx';
     function Ex(username) {
-        return _super.call(this, "Max", username) || this;
+        var _this = _super.call(this, "Max", username) || this;
+        _this.age = 10;
+        return _this;
+        // console.log(this.type) Error
     }
     return Ex;
 }(Person));
