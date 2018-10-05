@@ -35,6 +35,11 @@ countdown();
 //Rest and spread
 const number = [4,5,32,1];
 console.log(Math.max(32,3,4,55,6)); //list
+const ob:{x:number,y:number} = {
+    x:2,
+    y:4
+};
+console.log({...ob});
 console.log(Math.max(...number)); //spread array to single value
 //Rest
 function makeArray(...args:number[]){ //combine all args
@@ -58,3 +63,7 @@ console.log(names,surname);
 const {names:x1,surname:x2} = obj; //: ไม่ได้หมายความว่าชนิดแต่เป็นตัวแปรใหม่ Es2017
 console.log(x1,x2);
 
+//Template iteral
+const username = "ex";
+const show_uname = `Hello ${username} Miew miew `;
+console.log(show_uname);

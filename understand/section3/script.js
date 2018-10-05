@@ -1,3 +1,14 @@
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 //block scope
 var vars = "number";
 function reset() {
@@ -29,6 +40,11 @@ countdown();
 //Rest and spread
 var number = [4, 5, 32, 1];
 console.log(Math.max(32, 3, 4, 55, 6)); //list
+var ob = {
+    x: 2,
+    y: 4
+};
+console.log(__assign({}, ob));
 console.log(Math.max.apply(Math, number)); //spread array to single value
 //Rest
 function makeArray() {
@@ -52,3 +68,7 @@ console.log(names, surname);
 //rename destruct obj
 var x1 = obj.names, x2 = obj.surname; //: ไม่ได้หมายความว่าชนิดแต่เป็นตัวแปรใหม่ Es2017
 console.log(x1, x2);
+//Template iteral
+var username = "ex";
+var show_uname = "Hello " + username + " Miew miew ";
+console.log(show_uname);
