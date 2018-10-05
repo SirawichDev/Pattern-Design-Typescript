@@ -30,5 +30,9 @@ var res2 = testResult[1];
 var res3 = testResult[2];
 var res4 = testResult[3];
 var res5 = testResult[4];
-
+//Ex6
+const sci = {fname: "siraw",lname:"voung"};
+const x1 = sci.fname;
+const x2 = sci.lname;
+console.log(x1,x2);
 
