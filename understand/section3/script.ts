@@ -19,7 +19,7 @@ const multi = (number1:number,number2:number) =>{
 
 console.log(multi(3,4));
 
-const greet = friend => console.log(friend);
+const greet = (friend:string) => console.log(friend);
 
 greet('33');
 
