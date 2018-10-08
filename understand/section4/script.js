@@ -13,9 +13,9 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var Person = /** @class */ (function () {
     function Person(name, username) {
-        this.username = username;
         this.age = 23; //access any class extenn Person class
         this.name = name;
+        this.username = username;
     }
     //Method
     Person.prototype.printAge = function () {
@@ -36,13 +36,81 @@ person.printAge();
 var Ex = /** @class */ (function (_super) {
     __extends(Ex, _super);
     // name = 'xx';
-    function Ex(username) {
-        var _this = _super.call(this, "Max", username) || this;
-        _this.age = 10;
-        return _this;
+    //age=20;
+    function Ex(name, username) {
+        return _super.call(this, "jo", name) || this;
+        //   super("",username);
+        // super("xx",username);
+        //  this.age = 10;
         // console.log(this.type) Error
     }
     return Ex;
 }(Person));
-var exs = new Ex("adn"); //อิงจาก constructor ตัว Person
+var exs = new Ex("adn", "ss"); //อิงจาก constructor ตัว Person
 console.log(exs);
+//Getter & Setter
+var Plant = /** @class */ (function () {
+    function Plant() {
+        this._species = "Default";
+    }
+    Object.defineProperty(Plant.prototype, "species", {
+        get: function () {
+            return this._species;
+        },
+        set: function (value) {
+            if (value.length > 3) {
+                this._species = value;
+            }
+            else {
+                this._species = "Default";
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return Plant;
+}());
+var plant = new Plant();
+//Getter
+console.log(plant.species);
+//Setter
+plant.species = "PinkPlant";
+console.log(plant.species);
+// Static Properties & Method ใช้ในHelper class สะดวก
+var Helpers = /** @class */ (function () {
+    function Helpers() {
+    }
+    Helpers.circleferrence = function (diamter) {
+        return this.PI * diamter;
+    };
+    Helpers.PI = 3.14;
+    return Helpers;
+}());
+console.log(2 * Helpers.PI);
+console.log(Helpers.circleferrence(4));
+//Abstrct class
+var Project = /** @class */ (function () {
+    function Project() {
+        this.projectName = "Default";
+        this.budget = 200;
+    }
+    Project.prototype.calcBudget = function () {
+        return this.budget * 3;
+    };
+    return Project;
+}());
+var ItProject = /** @class */ (function (_super) {
+    __extends(ItProject, _super);
+    function ItProject() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    ItProject.prototype.changeName = function (name) {
+        this.projectName = name;
+        this.budget = 300;
+    };
+    return ItProject;
+}(Project));
+var newProject = new ItProject();
+console.log(newProject);
+newProject.changeName("Miew Miew Project");
+console.log(newProject);
