@@ -73,7 +73,7 @@ console.log(2* Helpers.PI);
 console.log(Helpers.circleferrence(4));
 
 
-//Abstrct class
+//Abstract class
 abstract class Project{
     projectName:string = "Default";
     budget:number = 200;
@@ -94,3 +94,28 @@ let newProject = new ItProject();
 console.log(newProject);
 newProject.changeName("Miew Miew Project");
 console.log(newProject);
+
+
+//Private Constructor;
+
+class OnlyOne{
+    private static instance: OnlyOne;
+    public readonly name: string; // readonly properties ทำให้ ตัวแปรนั้นอ่านได้อย่างเดียวไม่สามารถเขียนได้ 
+    private constructor(name:string){
+        this.name = name;
+    }
+
+    static getInstance(){
+        if(!OnlyOne.instance){
+            OnlyOne.instance = new OnlyOne('Hellow');
+        }
+        return OnlyOne.instance;
+    }
+}
+
+// let wrong = new OnlyOne('sdas');
+let right = OnlyOne.getInstance();
+console.log(right.name);
+// right.name = 'xx'; //error this line
+console.log(right.name);
+
