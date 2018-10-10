@@ -1,3 +1,4 @@
+"use strict";
 //Ex1
 var double = function (value) { return value * 2; };
 //Ex2
