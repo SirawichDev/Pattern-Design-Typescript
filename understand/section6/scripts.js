@@ -33,3 +33,11 @@ myDoubleFunc = function (n1, n2) {
     return n1 + n2;
 };
 console.log(myDoubleFunc(20, 30));
+var union = {
+    age: 20,
+    firstname: "sirawich",
+    greet: function (n) {
+        console.log(n);
+    }
+};
+union.greet("Hi");

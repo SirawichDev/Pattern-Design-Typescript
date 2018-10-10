@@ -46,3 +46,17 @@ myDoubleFunc= function (n1:number,n2:number) {
     return n1+n2;
 };
 console.log(myDoubleFunc(20,30));
+
+//Interface inheritance
+interface Name extends NamePerson{
+    age:number;
+}
+const union:Name = { //inherite prop ของทั้ง Name และ NamePerson
+    age:20,
+    firstname:"sirawich",
+    greet(n:string){
+        console.log(n);
+    }
+};
+
+union.greet("Hi");
