@@ -6,16 +6,43 @@ interface NamePerson {
 }
 function hello(person:NamePerson){
     console.log(person.firstname + ' ' + person.age);
-
 }
 const person = {
     firstname:"sirawich",
     age:23,
-    none: 23,
     greet(name:string){
         console.log("Hello " , this.firstname, name);
     }
 };
 hello(person);
 person.greet("Ex");
+interface Test {
+    firstnames:string;
+    age?: number;
+}
+//Class
+class Miew implements Test{
+    firstnames:string;
+    age:number = 20;
+    greet(name:string){
+        console.log(this.firstnames);
+    }
+}
+function ttest(cat:Test){
+    console.log(cat.firstnames)
+}
+let cat = new Miew();
+cat.firstnames = "Sirawich";
+ttest(cat); //เรียก hello
+cat.greet("sry sry");
 
+//function type
+interface DoubleValueFunc {
+    (number1:number,number2:number):number; //function
+}
+
+let myDoubleFunc: DoubleValueFunc;
+myDoubleFunc= function (n1:number,n2:number) {
+    return n1+n2;
+};
+console.log(myDoubleFunc(20,30));
