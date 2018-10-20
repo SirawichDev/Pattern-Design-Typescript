@@ -32,3 +32,6 @@ print(["x", "y"], 2); //บอกว่า ค่าที่ส่งไปย�
 // print<number>(["x","y"],2); //error
 // print<string>(["x","y"],2); //error
 // print<number>(["x","y"]); //error
+//Generic type
+var miew = print;
+console.log(miew([32, 23], 2));
