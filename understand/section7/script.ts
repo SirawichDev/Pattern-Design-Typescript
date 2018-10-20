@@ -40,3 +40,16 @@ print<number|string>(["x","y"],2); //บอกว่า ค่าที่ส่
 //Generic type
 const miew: <T>(data:T[],number:number) => T= print;
 console.log(miew<number>([32,23],2));
+
+//Generic Class
+class MaMaSung<T extends number | string>{
+    val1: T;
+    val2: T;
+    calc(){
+        return <number>this.val1 * <number>this.val2; //+ด้านหน้า หรือ บอก type <number> เพื่อแปลงเป็น number
+    }
+};
+const ss = new MaMaSung<number|string>(); //บอกให้ instance initค่าหรือเปลี่ยนแปลงหรืออ่านได้เฉพาะ numberเท่านั้น
+ss.val1=3;
+ss.val2 =5;
+console.log(ss.calc());

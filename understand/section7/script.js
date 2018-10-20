@@ -35,3 +35,17 @@ print(["x", "y"], 2); //บอกว่า ค่าที่ส่งไปย�
 //Generic type
 var miew = print;
 console.log(miew([32, 23], 2));
+//Generic Class
+var MaMaSung = /** @class */ (function () {
+    function MaMaSung() {
+    }
+    MaMaSung.prototype.calc = function () {
+        return this.val1 * this.val2; //+ด้านหน้า หรือ บอก type <number> เพื่อแปลงเป็น number
+    };
+    return MaMaSung;
+}());
+;
+var ss = new MaMaSung(); //บอกให้ instance initค่าหรือเปลี่ยนแปลงหรืออ่านได้เฉพาะ numberเท่านั้น
+ss.val1 = 3;
+ss.val2 = 5;
+console.log(ss.calc());
