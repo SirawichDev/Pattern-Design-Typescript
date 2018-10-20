@@ -46,6 +46,20 @@ var MaMaSung = /** @class */ (function () {
 }());
 ;
 var ss = new MaMaSung(); //บอกให้ instance initค่าหรือเปลี่ยนแปลงหรืออ่านได้เฉพาะ numberเท่านั้น
+// const xx = new MaMaSung<boolean>(); //errorเพราะ เรากำหนดให้ class ใช้ ได้แค่ type number กับ string เทานั้น
 ss.val1 = 3;
 ss.val2 = 5;
 console.log(ss.calc());
+//More Generic class
+var Complex = /** @class */ (function () {
+    function Complex() {
+    }
+    Complex.prototype.show = function () {
+        return this.val1 + this.val2;
+    };
+    return Complex;
+}());
+var sh = new Complex(); //บอกว่า Type ตัวแรก <t>เป็น number Type ตัวที่สอง U เป็น string <number>val1, <string>val2
+sh.val1 = 2;
+sh.val2 = "sd";
+console.log(sh.show());
