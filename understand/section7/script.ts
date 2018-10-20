@@ -56,7 +56,6 @@ ss.val2 =5;
 console.log(ss.calc());
 
 //More Generic class
-
 class Complex<T extends number | boolean , U extends number | string>{
     val1: T;
     val2: U;
