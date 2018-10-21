@@ -47,10 +47,18 @@ var Plant = /** @class */ (function () {
 }());
 var plant = new Plant();
 plant.print();
-//Mehod Decorator
+//Method Decorator
 function editable(value) {
     return function (target, propName, descriptor) {
         descriptor.writable = value;
+    };
+}
+function overwritable(value) {
+    return function (target, propName) {
+        var newDescriptor = {
+            writable: value
+        };
+        return newDescriptor;
     };
 }
 var Project = /** @class */ (function () {
@@ -61,13 +69,17 @@ var Project = /** @class */ (function () {
         console.log(1000);
     };
     __decorate([
-        editable(false)
+        overwritable(true) //un editaable = false
+    ], Project.prototype, "projectName", void 0);
+    __decorate([
+        editable(false) //Method Decorator
     ], Project.prototype, "calcBudget", null);
     return Project;
 }());
 var project = new Project("Exy");
 project.calcBudget();
-project.calcBudget = function () {
-    console.log(2000);
-};
+// project.calcBudget = function(){
+//     console.log(2000);
+// }
 project.calcBudget();
+console.log(project.projectName);
