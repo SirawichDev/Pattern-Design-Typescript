@@ -47,3 +47,27 @@ var Plant = /** @class */ (function () {
 }());
 var plant = new Plant();
 plant.print();
+//Mehod Decorator
+function editable(value) {
+    return function (target, propName, descriptor) {
+        descriptor.writable = value;
+    };
+}
+var Project = /** @class */ (function () {
+    function Project(name) {
+        this.projectName = name;
+    }
+    Project.prototype.calcBudget = function () {
+        console.log(1000);
+    };
+    __decorate([
+        editable(false)
+    ], Project.prototype, "calcBudget", null);
+    return Project;
+}());
+var project = new Project("Exy");
+project.calcBudget();
+project.calcBudget = function () {
+    console.log(2000);
+};
+project.calcBudget();
