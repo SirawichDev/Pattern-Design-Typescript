@@ -46,7 +46,7 @@ function overwritable(value:boolean){
     }
 }
 class Project { 
-    @overwritable(true) //un editaable = false
+    @overwritable(true) //uneditaable = false
     projectName: string;
     constructor(name:string){
         this.projectName = name;
@@ -63,3 +63,28 @@ project.calcBudget();
 // }
 project.calcBudget();
 console.log(project.projectName);
+
+
+//Parameter decorator
+function printInfo(target:any, methodName:string,paramIndex: number ) {
+    console.log("Target: ",target);
+    console.log("method name",methodName );
+    console.log("paramIndex",paramIndex);
+}
+class Course{
+    name:string;
+
+    constructor(name:string){
+        this.name= name;
+    }
+    printTeacherNumber(mode:string, @printInfo printAll:boolean){
+        if (printAll) {
+            console.log(10000);
+        } else {
+            console.log(100);
+        }
+    }
+}
+const course = new Course("Eng");
+course.printTeacherNumber("Foo",true);
+course.printTeacherNumber("fucc",false);

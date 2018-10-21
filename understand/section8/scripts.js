@@ -5,6 +5,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 //Decoraor
 function test(counstructorFn) {
     console.log(counstructorFn);
@@ -69,7 +72,7 @@ var Project = /** @class */ (function () {
         console.log(1000);
     };
     __decorate([
-        overwritable(true) //un editaable = false
+        overwritable(true) //uneditaable = false
     ], Project.prototype, "projectName", void 0);
     __decorate([
         editable(false) //Method Decorator
@@ -83,3 +86,29 @@ project.calcBudget();
 // }
 project.calcBudget();
 console.log(project.projectName);
+//Parameter decorator
+function printInfo(target, methodName, paramIndex) {
+    console.log("Target: ", target);
+    console.log("method name", methodName);
+    console.log("paramIndex", paramIndex);
+}
+var Course = /** @class */ (function () {
+    function Course(name) {
+        this.name = name;
+    }
+    Course.prototype.printTeacherNumber = function (mode, printAll) {
+        if (printAll) {
+            console.log(10000);
+        }
+        else {
+            console.log(100);
+        }
+    };
+    __decorate([
+        __param(1, printInfo)
+    ], Course.prototype, "printTeacherNumber", null);
+    return Course;
+}());
+var course = new Course("Eng");
+course.printTeacherNumber("Foo", true);
+course.printTeacherNumber("fucc", false);
